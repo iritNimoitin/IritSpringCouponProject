@@ -16,11 +16,12 @@ public class TestCustomerService {
 	}
 	
 	/**
-	 * Testing methods of CustomerFacade:
+	 * Testing methods of CustomerService:
 	 * getCoupons(), purchaseCoupon(coupon), getCustomerCoupons(), 
 	 * getCustomerCoupons(category), getCustomerCoupons(maxPrice),
+	 * getCouponByTitle(title), getCouponsByCategory(category),
 	 * getCustomerDetails()
-	 * @param customerFacade
+	 * @param customerService
 	 */
 	public void start(CustomerService customerService) {
 		try {

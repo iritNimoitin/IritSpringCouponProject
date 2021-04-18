@@ -36,7 +36,8 @@ public class Coupon {
 	private Double price;
 	private String image;
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-	@JoinTable(name = "customers_vs_coupons", joinColumns = @JoinColumn(name = "coupon_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
+	@JoinTable(name = "customers_vs_coupons", joinColumns = @JoinColumn(name = "coupon_id"),
+				inverseJoinColumns = @JoinColumn(name = "customer_id"))
 	private List<Customer> customers;
 	
 	public enum Category {
@@ -59,7 +60,7 @@ public class Coupon {
 		this.image = image;
 	}
 
-	public void addCustomer(Customer customer) {// TODO: check if needed
+	public void addCustomer(Customer customer) {
 		if (this.customers == null) {
 			this.customers = new ArrayList<Customer>();
 		}

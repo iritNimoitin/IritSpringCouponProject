@@ -29,9 +29,8 @@ public class CompanyService extends ClientService {
 		super(companyRepository, couponRepository, customerRepository);
 	}
 	
-	
 	/**
-	 * First checks if company exists in database by his email,
+	 * First checks if company exists in database by it's email,
 	 * then validate the password.
 	 * Finally initialize the filed companyId to be the company id.
 	 * @param email

@@ -2,8 +2,6 @@ package app.core.tests;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import app.core.entities.Company;
@@ -15,17 +13,13 @@ import app.core.services.AdminService;
 @Component
 public class TestAdminService {
 	
-	private ApplicationContext ctx;
-	
-	@Autowired
-	public TestAdminService(ApplicationContext ctx) {
-		this.ctx = ctx;
+	public TestAdminService() {
 	}
 	
 	/**
 	 * Adds companies and customers to database,
-	 * testing the methods addCompany(company) and addCustomer(customer) of AdminFacade
-	 * @param adminFacade
+	 * testing the methods addCompany(company) and addCustomer(customer) of AdminService
+	 * @param adminService
 	 */
 	public void initializeCompaniesAndCustomers(AdminService adminService) {
 		for(int i = 0; i < 5; i++) {
@@ -47,12 +41,12 @@ public class TestAdminService {
 	}
 	
 	/**
-	 * Testing methods of AdminFacade:
-	 * getAllCompanies(), getAllCustomers(), deleteCompany(companyID),
-	 * deleteCustomer(customerID), getOneCompany(companyID), 
-	 * getOneCustomer(customerID), updateCompany(company), updateCustomer(customer),
-	 * getCompanyCoupons(companyID), getCustomerCoupons(customerID)
-	 * @param adminFacade
+	 * Testing methods of AdminService:
+	 * getAllCompanies(), getAllCustomers(), deleteCompany(companyId),
+	 * deleteCustomer(customerId), getOneCompany(companyId), 
+	 * getOneCustomer(customerId), updateCompany(company), updateCustomer(customer),
+	 * getCompanyCoupons(companyId), getCustomerCoupons(customerId)
+	 * @param adminService
 	 */
 	public void start(AdminService adminService) {
 		try {
@@ -150,7 +144,7 @@ public class TestAdminService {
 	}
 	
 	private Company createCompany(String email, String name, String password) {
-		Company company = new Company();//ctx.getBean(Company.class);
+		Company company = new Company();
 		company.setEmail(email);
 		company.setName(name);
 		company.setPassword(password);
@@ -158,7 +152,7 @@ public class TestAdminService {
 	}
 	
 	private Customer createCustomer(String email, String firstName, String lastName, String password) {
-		Customer customer = new Customer();//ctx.getBean(Customer.class);
+		Customer customer = new Customer();
 		customer.setEmail(email);
 		customer.setFirstName(firstName);
 		customer.setLastName(lastName);

@@ -13,11 +13,10 @@ import app.core.services.JobService;
 
 /**
  * The daily job task that goes over the coupons daily
- * to check if any coupons have expired and then deletes them
+ * to check if any coupons have expired and then deletes them.
  */
 @Component
 public class CouponExpirationDailyJob implements Runnable {
-	
 	
 	private JobService jobService;
 	private boolean quit;
@@ -55,5 +54,4 @@ public class CouponExpirationDailyJob implements Runnable {
 		job = new Thread(this);
 		job.start();
 	}
-	
 }

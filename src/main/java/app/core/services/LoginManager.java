@@ -19,7 +19,7 @@ public class LoginManager {
 	/**
 	 * According to @param(clientType) trying to login to the system
 	 * with @param(email) and @param(password)
-	 * @return client facade in accordance to clientType
+	 * @return client service in accordance to clientType
 	 * @throws CouponSystemException
 	 */
 	public ClientService login(String email, String password, ClientType clientType) throws CouponSystemException {

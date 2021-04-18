@@ -34,6 +34,13 @@ public class AdminService extends ClientService {
 		return false;
 	}
 	
+	/**
+	 * Adds company to the database only if:
+	 * 	the company not appears in the database (checks by company id)
+	 * 	the company name or email doesn't belongs to another company in the database
+	 * @param company
+	 * @throws CouponSystemException
+	 */
 	public void addCompany(Company company) throws CouponSystemException {
 		if(companyRepository.existsById(company.getId())) {
 			throw new CouponSystemException("The id of the company already exist in the system. Can't add company with the same id.");
@@ -47,6 +54,13 @@ public class AdminService extends ClientService {
 		companyRepository.save(company);
 	}
 	
+	/**
+	 * Updates email or password of the company only if,
+	 * the company appears in the database (checks by company id).
+	 * Can't update the company name.
+	 * @param company
+	 * @throws CouponSystemException
+	 */
 	public void updateCompany(Company company) throws CouponSystemException {
 		Company dbCompany = companyRepository.findFirstById(company.getId());
 		if(dbCompany == null) {
@@ -60,11 +74,8 @@ public class AdminService extends ClientService {
 	}
 	
 	/**
-	 * first deletes all company coupons and the coupons purchases from database, 
-	 * then deletes company from database
-	 * @param email
-	 * @param password
-	 * @return true if company exists in database
+	 * First checks if the company with @param(companyId)
+	 * exists in the database and then deletes the company.
 	 * @throws CouponSystemException
 	 */
 	public void deleteCompany(int companyId) throws CouponSystemException {
@@ -86,6 +97,13 @@ public class AdminService extends ClientService {
 		return company;
 	}
 	
+	/**
+	 * Adds customer to the database only if:
+	 * 	the customer not appears in the database (checks by customer id)
+	 * 	the customer email doesn't belongs to another customer in the database
+	 * @param customer
+	 * @throws CouponSystemException
+	 */
 	public void addCustomer(Customer customer) throws CouponSystemException {
 		if(customerRepository.existsById(customer.getId())) {
 			throw new CouponSystemException("The id of the customer already exist in the system. Can't add customer with the same id.");

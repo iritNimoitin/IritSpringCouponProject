@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customers")
 public class Customer {
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +25,8 @@ public class Customer {
 	private String email;
 	private String password;
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-	@JoinTable(name = "customers_vs_coupons", joinColumns = @JoinColumn(name = "customer_id"), inverseJoinColumns = @JoinColumn(name = "coupon_id"))
+	@JoinTable(name = "customers_vs_coupons", joinColumns = @JoinColumn(name = "customer_id"),
+				inverseJoinColumns = @JoinColumn(name = "coupon_id"))
 	private List<Coupon> coupons;
 	
 	public Customer() {
@@ -40,7 +40,7 @@ public class Customer {
 		this.password = password;
 	}
 
-	public void addCoupon(Coupon coupon) {// TODO: check if needed
+	public void addCoupon(Coupon coupon) {
 		if (this.coupons == null) {
 			this.coupons = new ArrayList<Coupon>();
 		}
@@ -108,6 +108,4 @@ public class Customer {
 	public String toString() {
 		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-	
-	
 }

@@ -30,9 +30,8 @@ public class CustomerService extends ClientService {
 		super(companyRepository, couponRepository, customerRepository);
 	}
 	
-
 	/**
-	 * First checks if customer exists in database by his email,
+	 * First checks if customer exists in database by it's email,
 	 * then validate the password.
 	 * Finally initialize the filed customerId to be the customer id.
 	 * @param email
@@ -56,9 +55,10 @@ public class CustomerService extends ClientService {
 	
 	/**
 	 * Adds coupon purchase to database if:
-	 * 1. The customer does not purchased it before
-	 * 2. The amount of the coupon is above zero
-	 * 3. The coupon is still valid
+	 * 1. The coupon exists in the database
+	 * 2. The customer does not purchased it before
+	 * 3. The amount of the coupon is above zero
+	 * 4. The coupon is still valid
 	 * Then reduce the amount of the coupon by one.
 	 * @throws CouponSystemException
 	 */
@@ -111,6 +111,4 @@ public class CustomerService extends ClientService {
 	public Customer getCustomerDetails() {
 		return customerRepository.findFirstById(customerId);
 	}
-	
-
 }

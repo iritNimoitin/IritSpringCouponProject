@@ -3,7 +3,6 @@ package app.core.tests;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -15,17 +14,13 @@ import app.core.services.CompanyService;
 @Component
 public class TestCompanyService {
 	
-	private ApplicationContext ctx;
-	
-	@Autowired
 	public TestCompanyService(ApplicationContext ctx) {
-		this.ctx = ctx;
 	}
 	
 	/**
 	 * Adds company coupons to database, using company1
-	 * testing the method addCoupon(coupon) of CompanyFacade
-	 * @param companyFacade
+	 * testing the method addCoupon(coupon) of CompanyService
+	 * @param companyService
 	 */
 	public void initializeCoupons1(CompanyService companyService) {
 		try {	
@@ -44,9 +39,9 @@ public class TestCompanyService {
 	}
 	
 	/**
-	 * Adds company coupons to database, using company1
-	 * testing the method addCoupon(coupon) of CompanyFacade
-	 * @param companyFacade
+	 * Adds company coupons to database, using company2
+	 * testing the method addCoupon(coupon) of CompanyService
+	 * @param companyService
 	 */
 	public void initializeCoupons2(CompanyService companyService) {
 		try {
@@ -65,11 +60,11 @@ public class TestCompanyService {
 	}
 	
 	/**
-	 * Testing methods of CompanyFacade:
+	 * Testing methods of CompanyService:
 	 * getCompanyCoupons(), updateCoupon(coupon), deleteCoupon(couponID),
 	 * getCompanyCoupons(category), getCompanyCoupons(maxPrice), 
 	 * getCompanyDetails()
-	 * @param companyFacade
+	 * @param companyService
 	 */
 	public void start(CompanyService companyService) {
 		try {

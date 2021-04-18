@@ -34,7 +34,7 @@ public class Company {
 		this.password = password;
 	}
 
-	public void addCoupon(Coupon coupon) {// TODO: check if needed
+	public void addCoupon(Coupon coupon) {
 		if (this.coupons == null) {
 			this.coupons = new ArrayList<Coupon>();
 		}
@@ -90,8 +90,4 @@ public class Company {
 	public String toString() {
 		return "Company [name=" + name + ", email=" + email + "]";
 	}
-	
-	
-	
-	
 }

@@ -26,12 +26,9 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
 
 	List<Coupon> findByCompanyIdAndPriceLessThanEqual(int companyId, double maxPrice);
 
-	//boolean existsByIdAndCustomerId(int id, int customerId);
 	boolean existsByIdAndCustomersId(int id, int customerId);
 	
 	List<Coupon> findByCustomersIdAndPriceLessThanEqual(int customerId, double maxPrice);
-
-//	List<Coupon> findByEndDateBefore(LocalDate now);
 
 	void deleteByEndDateBefore(LocalDate now);
 
